@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat</title>
+    <link href="/app.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <span class="chat-wrapper">
+      <div class="header-title"><b>Chat App</b></div>
+      <div class="message-display-sheet"></div>
+      <div class="input-wrapper">
+        <input autocomplete="off" placeholder="Enter text to add to chat" />
+        <button>Send</button>
+      </div>
+    </span>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        let socket = io();
+
+        $("button").on("click", function () {
+          socket.emit("new message", $("input").val());
+          $("input").val("");
+        });
+        socket.on("new message", function (msg) {
+          $(".message-display-sheet").append(msg + "<br />");
+        });
+        socket.on("joined", function (msg) {
+          $(".message-display-sheet").append("A new user joined<br />");
+        });
+        socket.on("disconnected", function (msg) {
+          $(".message-display-sheet").append("A user disconnected<br />");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+body {
+  background-color: #a3d7d7;
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  width: 178px;
+}
+
+.header-title {
+  background-color: #f8f8f8;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 500px;
+  height: 40px;
+  color: #5e5e5e;
+  font-size: 30px;
+  text-align: center;
+  border-bottom: solid 1.5px #858585;
+}
+
+.chat-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f9fbff;
+  border-radius: 20px;
+  width: 500px;
+}
+
+.message-display-sheet {
+  color: black;
+  display: flex;
+  flex-direction: column-reverse;
+  height: 480px;
+  width: 100%;
+  overflow-y: auto;
+  font-size: 100px;
+}
+
+.message-display-sheet::-webkit-scrollbar {
+  display: none;
+}
+
+.input-wrapper {
+  width: 225px;
+  margin: 10px 0 12px 0;
+  display: flex;
+  justify-content: space-around;
+}
